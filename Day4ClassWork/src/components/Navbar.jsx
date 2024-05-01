@@ -2,7 +2,7 @@
 
 function Navbar() {
   return (
-    <div className='w-[100%] flex justify-between items-center bg-white text-black py-6 px-20'>
+    <div className='w-[100%] flex justify-between items-center bg-white text-blue-500 py-6 px-20'>
         <div className='flex justify-center items-center gap-2'>
             <p className='text-2xl font-semibold'>HootSuite 🦉</p>
         <div className='hidden cursor-pointer justify-center items-center gap-6 text-[1.1rem] font-semibold lg:flex xl:flex  2xl:flex ml-10'>
