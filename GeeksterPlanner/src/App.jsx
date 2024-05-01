@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import "./index.css";
-import Mode from "./Mode";
+// import Mode from "./Mode";
 
 function App() {
   const [task, setTask] = useState([]);
-
+  // const [flag, setMode] = useState(false);
   const [subject, setSubject] = useState("");
   const [hour, setHour] = useState("");
 
@@ -50,7 +50,7 @@ const deleteTask = (index)=>{
   return (
     <>
       <div className="flex flex-col items-center justify-center h-[100vh] w-[100%]">
-        <Mode />
+        {/* <Mode flag={flag} setMode={setMode} /> */}
         <h1 className="text-center text-5xl font-bold">
           Geekster Educational Planner
         </h1>

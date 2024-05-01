@@ -3,7 +3,7 @@
 3. [GeekFoods / Day3_classWork](https://react-js-projects-7u9q.vercel.app/?authuser=0)
 4. [Day3_HomeWork](https://react-js-projects-rouge.vercel.app/?authuser=0)
 5. [Food_Delivery_App](https://react-js-food-delivery-app.vercel.app/)
-6. [Geekster_Planner]()
+6. [Geekster_Planner](https://6631fc9e34aa69a84062dc41--sparkly-biscuit-4fcf56.netlify.app/)
 7. [ToDoList]()
 8. [Link]()
 9. [Link]()
