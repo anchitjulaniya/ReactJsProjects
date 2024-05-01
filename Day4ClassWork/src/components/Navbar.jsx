@@ -2,10 +2,10 @@
 
 function Navbar() {
   return (
-    <div  className='w-[100%] flex justify-between items-center bg-white py-6 px-20'>
+    <div className='w-[100%] flex justify-between items-center bg-white py-6 px-20'>
         <div className='flex justify-center items-center gap-2'>
             <p style={{color:"black"}} className='text-2xl font-semibold'>HootSuite 🦉</p>
-        <div  style={{color:"black"}}  className='hidden cursor-pointer justify-center items-center gap-6 text-[1.1rem] font-semibold lg:flex xl:flex  2xl:flex ml-10'>
+        <div style={{color:"black"}}  className='hidden cursor-pointer justify-center items-center gap-6 text-[1.1rem] font-semibold lg:flex xl:flex  2xl:flex ml-10'>
           <p>platform</p>
           <p>Plans</p>
           <p>Enterprise</p>
