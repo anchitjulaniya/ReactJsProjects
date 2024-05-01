@@ -1,20 +1,4 @@
-// const Footer = ()=>{
-//     return (
-//         <div className="footer">
 
-//             <h1 className="text-center">Zomato</h1>
-            
-//             <p className="text-center">Copyright &copy; 2022</p>
-//             <p className="text-center">All Rights Reserved @Anchit Julaniya</p>
-            
-//         </div>
-//     )
-// }
-
-// export default Footer;
-
-// -------------------------------------
-import React from 'react'
 
  function Footer() {
   return (

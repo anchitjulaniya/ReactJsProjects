@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 
  const Card = ({restroName, foodName, imageUrl, rating, time, link }) => {
-    console.log(restroName, foodName, imageUrl);
+    // console.log(restroName, foodName, imageUrl);
   return (
     <a href={link}>
         <div className="w-[300px] rounded-md border hover:scale-110 duration-600 transition-all cursor-pointer" >
@@ -40,20 +40,3 @@ Card.propTypes = {
   };
 
   export default Card;
-// ---------------------------------------
-//     return (
-//                 <div className="flex flex-col bg-white shadow-xl rounded-lg overflow-hidden">
-//                     <img className="w-[300px] h-[200px]" src={props.imageUrl} alt="Food Item" />
-//                     <div className="card-body px-3 py-1">
-//                         <h2 className="card-title text-black font-bold text-2xl">{props.restroName}</h2>
-//                         <p>{props.foodName}</p>
-                        
-//                     </div>
-//                 </div>
-//                 )
-// }
-
-
-
-// -----------------------
-
