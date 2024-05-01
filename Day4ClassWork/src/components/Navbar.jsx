@@ -1,8 +1,8 @@
-import React from 'react'
+
 
 function Navbar() {
   return (
-    <div className='w-[100%] flex justify-between items-center bg-white py-6 px-20'>
+    <div className='w-[100%] flex justify-between items-center bg-white text-black py-6 px-20'>
         <div className='flex justify-center items-center gap-2'>
             {/* <img src="https://flowbite.com/docs/images/logo.svg" alt="logo" /> */}
             <h1 className='text-2xl font-semibold'>HootSuite 🦉</h1>
