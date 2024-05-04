@@ -1,0 +1,25 @@
+.navbar {
+    list-style-type: none;
+    padding: 10px;
+    margin: 0;
+    background-color: gray;
+    display: flex;
+    justify-content: space-evenly; 
+  }
+  
+  .navbar li {
+    display: inline-block;
+    cursor: pointer;
+    color: white;
+  }
+  
+  .navbar li:hover {
+    background-color:  rgb(230, 75, 230);;
+  }
+  
+  .selected {
+    background-color: rgb(82, 4, 82);
+    color: white;
+    padding: 0px 10px;
+  }
+  
