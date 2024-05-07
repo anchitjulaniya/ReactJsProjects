@@ -10,7 +10,7 @@ import RestaurantMenuPage from './RestaurantMenuPage.jsx'
 
 const appRouter = createBrowserRouter([{
   path:'/',
-  element:<App />,
+  element:<App /> ,
   children:[
     {
       path:"/",

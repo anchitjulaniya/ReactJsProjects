@@ -1,18 +1,23 @@
 import React from 'react'
+import UserClass from './UserClass';
 
 class AboutClass extends React.Component{
 
     constructor(props){
         super(props);
-        console.log(props);
+        console.log("Parent constructor");
     }
 
+    componentDidMount(){
+        console.log("Parent Componet did mount");
+    }
 
     render(){
+        console.log("Parent render");
         return(
             <div>
             <div className="max-w-[360px] w-full mx-auto bg-[#0d1b2a] rounded-lg shadow-md p-4">
-  <form>
+  <form className=' text-white'>
     <div className="mb-4">
       <label className="block mb-2 text-gray-50" > {this.props.name} </label>
       <input
@@ -51,7 +56,7 @@ class AboutClass extends React.Component{
     </div>
   </form>
 </div>
-
+        <UserClass name={"Anchit"} location={"Delhi"}></UserClass>
         </div>
         )
     }
