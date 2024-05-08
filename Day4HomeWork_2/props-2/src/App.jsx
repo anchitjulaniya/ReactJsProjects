@@ -4,8 +4,8 @@ function App() {
   let col = ["rgba(255, 0, 0,0.5)","rgba(0, 0, 255,0.5)"]
   const [movies, setMovies] = useState([
     {
-      bgimg: './src/assets/bright_bg.webp',
-      poster: './src/assets/bright_poster.jpg',
+      bgimg: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Faftermoviediner.com%2Ffeed%2Freviews%2Fnew-releases%2Fbright&psig=AOvVaw23lbwEVDBQKwXNAGX_JniA&ust=1715185506112000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNC7uY76-4UDFQAAAAAdAAAAABAY',
+      poster: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSF18olWMjM4fN_dtEDm8YQRUWdpXXTereddj5OgegEHVU3XmZ8',
       name: 'Bright',
       year: '2017',
       actor: 'David Ayer',
