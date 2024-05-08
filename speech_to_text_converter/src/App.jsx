@@ -11,11 +11,10 @@ function App() {
       <div className='w-[800px] h-[400px] rounded-2xl shadow-2xl'>
         <div id="displayBox" className='flex justify-center items-center h-[340px]'></div>
 
-        <div id="buttonBox" className='h-[60px] flex justify-between items-center'>
-          <button>Copy to clipboard</button>
-          <button>Start Listening</button>
-          <button>Stop Listening</button>
-          
+        <div id="buttonBox" className='h-[60px] px-8 flex justify-between items-center pb-8'>
+          <button className='bg-[#11a683] text-white text-[18px] px-7 py-4 rounded-lg hover:bg-[rgb(81,200,120)]'>Copy To Clipboard</button>
+          <button className='bg-[#11a683] text-white text-[18px] px-7 py-4 rounded-lg hover:bg-[rgb(81,200,120)]'>Start Listening</button>
+          <button className='bg-[#11a683] text-white text-[18px] px-7 py-4 rounded-lg hover:bg-[rgb(81,200,120)]'>Stop Listening</button>
         </div>
       </div>
     </div>
