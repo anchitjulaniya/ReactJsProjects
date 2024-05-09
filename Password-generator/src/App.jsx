@@ -1,7 +1,10 @@
 import Starfield from 'react-starfield';
 import Ui from './Ui';
 
+
 function App() {
+ 
+
   return (
     <div className="App">
       <Starfield
@@ -11,6 +14,7 @@ function App() {
         backgroundColor="black"
       />
       {/* Other components */}
+      
       <Ui />
     </div>
   );
