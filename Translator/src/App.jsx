@@ -8,12 +8,12 @@ function App() {
   const [lang, setTargetLanguage] = useState('');
   const [sourceLanguage, setSourceLanguage] = useState('en');
 
-
   async function translatorFunction() {
     if(lang === ''){
       alert('Select a language');
       return;
     }
+
     const encodedParams = new URLSearchParams();
     encodedParams.append('source_language', sourceLanguage);
     encodedParams.append('target_language', lang);
@@ -69,7 +69,10 @@ function App() {
             </div>
             <div className=" p-2 flex gap-2 items-center">
                 <textarea onChange={(e) => { setQuery(e.target.value) }} className="border-black border-[1px] w-[302px] h-[166] p-3 rounded-md outline-none" name="" id="" cols="30" rows="7" placeholder="ENTER TEXT"></textarea>
-                <div className="border-black border-[1px] w-[302px] h-[195px] p-3 rounded-md  bg-[rgb(237,239,240)]">{result}</div>
+                <div className="border-black border-[1px] w-[302px] h-[195px] p-3 rounded-md  bg-[rgb(237,239,240)]">
+                  {result}
+
+                  </div>
             </div>
             <div className='p-2 h-[50px]'>
               <button  onClick={translatorFunction} className='text-white font-bold bg-blue-500 flex justify-center items-center w-full h-full rounded-md'>Translate</button>
