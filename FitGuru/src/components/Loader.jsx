@@ -2,7 +2,7 @@ import "./loader.css"
 
 const Loader = () =>{
     return (
-                    <div class="spinner">
+        <div className="spinner my-8">
             <div></div>   
             <div></div>    
             <div></div>    
@@ -13,7 +13,7 @@ const Loader = () =>{
             <div></div>    
             <div></div>    
             <div></div>    
-            </div>
+        </div>
     )
 }
 

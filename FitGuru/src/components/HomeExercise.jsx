@@ -46,8 +46,10 @@ const Exercise = () => {
 
       useEffect(()=>{
         setLoading(true);
-        fetchData();
+        setTimeout(()=>{
+          fetchData();
         setLoading(false);
+        },2000)
       },[])
 
     return (

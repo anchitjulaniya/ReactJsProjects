@@ -6,7 +6,7 @@ import Loader from "./Loader";
 
 const Exercises = () => {
     const [exerciseResult, setExerciseResult] = useState([]);
-    const [loader, setLoader] = useState(false);
+    const [loading, setLoader] = useState(false);
     const fetchData = async () => {
         const url = "https://exercisedb.p.rapidapi.com/exercises?";
         const options = {
@@ -30,20 +30,25 @@ const Exercises = () => {
 
       useEffect(()=>{
         setLoader(true);
-        fetchData();
-        setLoader(false);
+        setTimeout(()=>{
+          fetchData();
+          setLoader(false);
+        },2000)
       },[])
 
-    if(loader){
-    return <Loader/>
-    }
+    
 
     return (
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center bg-[rgb(226,227,221)]">
             <h1 className="text-center text-4xl font-bold py-4">All Exercises</h1>
             <div className="flex flex-wrap justify-center py-10 gap-6 w-[80%]">
-            {exerciseResult.map((exercise) => (
-                    <div key={exercise.id} className="w-[280px] h-[310px] border-red-500 border-2 bg-white rounded-lg flex flex-col justify-center items-center gap-4">
+            {loading ? <Loader /> : exerciseResult.map((exercise) => (
+              
+                    <div onClick={
+                      console.log(exercise.name, exercise.id,exercise.bodyPart
+
+                       )} key={exercise.id} className="w-[280px] h-[310px] bg-white rounded-lg flex flex-col justify-center items-center gap-4 hover:cursor-pointer hover:shadow-lg">
+                      
                         <img src={exercise.gifUrl} width={170} alt="animated GIF url" />
                         <span className="flex gap-4">
                             <p className="text-[12px] flex justify-center items-center font-semibold text-white bg-red-500 rounded-full px-2">{exercise.bodyPart}</p>
