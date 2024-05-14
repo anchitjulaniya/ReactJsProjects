@@ -1,7 +1,7 @@
 import React from 'react';
 import 'regenerator-runtime/runtime';
 
-import SpeechRecognition, { useSpeechRecognition , browserSupportsContinuousListening } from 'react-speech-recognition';
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 
 const Dictaphone = ({reset}) => {
   
