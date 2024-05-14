@@ -42,8 +42,8 @@ const Exercises = () => {
         <div className="flex flex-col items-center bg-[rgb(226,227,221)]">
             <h1 className="text-center text-4xl font-bold py-4">All Exercises</h1>
             <div className="flex flex-wrap justify-center py-10 gap-6 w-[80%]">
-            {loading ? <Loader /> : exerciseResult.map((exercise) => (
-              
+            {loading ? <Loader /> : exerciseResult &&  exerciseResult.map((exercise) => (
+             <> console.log(exercise)
                     <div onClick={
                       console.log(exercise.name, exercise.id,exercise.bodyPart
 
@@ -57,6 +57,7 @@ const Exercises = () => {
                         </span>
                         <p className="text-[16px] font-bold uppercase text-center">{exercise.name}</p>
                     </div>
+                    </>
                 ))}
             </div>
         </div>
