@@ -6,7 +6,8 @@ import Loader from "./Loader";
 
 const Exercises = () => {
     const [exerciseResult, setExerciseResult] = useState([]);
-    const [loading, setLoader] = useState(false);
+    // const [loading, setLoader] = useState(false);
+
     const fetchData = async () => {
         const url = "https://exercisedb.p.rapidapi.com/exercises?";
         const options = {
@@ -29,11 +30,11 @@ const Exercises = () => {
       };
 
       useEffect(()=>{
-        setLoader(true);
+        // setLoader(true);
         setTimeout(()=>{
           fetchData();
-          setLoader(false);
-        },2000)
+          // setLoader(false);
+        },2000000)
       },[])
 
     
@@ -42,7 +43,7 @@ const Exercises = () => {
         <div className="flex flex-col items-center bg-[rgb(226,227,221)]">
             <h1 className="text-center text-4xl font-bold py-4">All Exercises</h1>
             <div className="flex flex-wrap justify-center py-10 gap-6 w-[80%]">
-            {loading ? <Loader /> : exerciseResult &&  exerciseResult.map((exercise) => (
+            {exerciseResult.length == 0 ? <Loader /> :   exerciseResult.map((exercise) => (
              <> console.log(exercise)
                     <div onClick={
                       console.log(exercise.name, exercise.id,exercise.bodyPart

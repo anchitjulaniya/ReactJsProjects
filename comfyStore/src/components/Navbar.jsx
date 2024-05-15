@@ -1,4 +1,6 @@
 'use client'
+import { IoCartOutline } from "react-icons/io5";
+import { FaRegMoon } from "react-icons/fa";
 
 import React from 'react'
 import { Menu, X, ChevronRight } from 'lucide-react'
@@ -73,9 +75,10 @@ export function ExampleNavbarThree() {
             ))}
           </ul>
         </div>
-        <div className="hidden space-x-2 lg:block">
-            {/* <FontAwesomeIcon icon="fa-regular fa-cart-shopping" />  
-            <FontAwesomeIcon icon="fa-regular fa-moon" /> */}
+        <div className="hidden space-x-2 lg:flex gap-4 items-center">
+          <FaRegMoon className="hover:text-red-500 text-xl hover:cursor-pointer" />
+          <Link to="/cart"><IoCartOutline  className="hover:text-red-500 text-3xl hover:cursor-pointer"  /></Link>
+        
         </div>
         <div className="lg:hidden">
           <Menu onClick={toggleMenu} className="h-6 w-6 cursor-pointer" />
@@ -131,11 +134,11 @@ export function ExampleNavbarThree() {
                     ))}
                   </nav>
                 </div>
-                <div className="mt-2 space-y-2">
-                    {/* <FontAwesomeIcon icon="fa-regular fa-cart-shopping" />  
-                    <FontAwesomeIcon icon="fa-regular fa-moon" /> */}
+                {/* <div className="mt-2 space-y-2">
+                  <FaRegMoon  className="ml-3 hover:text-red-500  hover:cursor-pointer" />
+                  <IoCartOutline className="ml-3 hover:text-red-500  hover:cursor-pointer"  /> 
                     
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

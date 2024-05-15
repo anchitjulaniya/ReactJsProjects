@@ -1,7 +1,41 @@
 import React from 'react'
 import { ArrowRight } from 'lucide-react'
+import { Link, useNavigate } from 'react-router-dom'
 
 export function SignUpThree() {
+  const [UserList,setUserList] = React.useState([])
+  const [fullName, setFullName] = React.useState('')
+  const [email, setEmail] = React.useState('')
+  const [password, setPassword] = React.useState('')
+  const  navigate = useNavigate();
+  React.useEffect (() => {
+    const user = localStorage.getItem('User')
+    if (user) {
+      console.log(JSON.parse(user))
+      setUserList(JSON.parse(user));
+    }
+  }, [])
+
+  const isEmailAlreadyExist = (email) => {
+    return UserList.some((user) => user.email === email)
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    
+    if(!fullName || !email || !password){alert("Please check all fields") ;return;}
+    // if(password.length < 6) {alert('Password must be atleast 6 characters long');return;}
+    if(!email.includes('@')) {alert('Please enter a valid email');return;}
+    if(fullName.trim()=="" || email.trim()=="" || password.trim()=="") {alert('Please enter all fields');return;}
+    if(isEmailAlreadyExist(email)) {alert('Email already exists');return;}
+    alert('Account Created successfully')
+    navigate("/signin")
+
+
+    UserList.push({ fullName, email, password })
+    localStorage.setItem('User', JSON.stringify(UserList))
+
+  }
   return (
     <section>
       <div className="flex items-center justify-center px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-24">
@@ -25,13 +59,13 @@ export function SignUpThree() {
           </h2>
           <p className="mt-2 text-center text-base text-gray-600">
             Already have an account?{' '}
-            <a
-              href="#"
+            <Link to="/signin"><span
+              
               title=""
               className="font-medium text-black transition-all duration-200 hover:underline"
             >
               Sign In
-            </a>
+            </span></Link>
           </p>
           <form action="#" method="POST" className="mt-8">
             <div className="space-y-5">
@@ -46,6 +80,8 @@ export function SignUpThree() {
                     type="text"
                     placeholder="Full Name"
                     id="name"
+                    onChange={(e) => setFullName(e.target.value)}
+                    value={fullName}
                   ></input>
                 </div>
               </div>
@@ -60,6 +96,8 @@ export function SignUpThree() {
                     type="email"
                     placeholder="Email"
                     id="email"
+                    onChange={(e) => setEmail(e.target.value)}
+                    value={email}
                   ></input>
                 </div>
               </div>
@@ -76,6 +114,8 @@ export function SignUpThree() {
                     type="password"
                     placeholder="Password"
                     id="password"
+                    onChange={(e) => setPassword(e.target.value)}
+                    value={password}
                   ></input>
                 </div>
               </div>
@@ -83,6 +123,7 @@ export function SignUpThree() {
                 <button
                   type="button"
                   className="inline-flex w-full items-center justify-center rounded-md bg-black px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-black/80"
+                  onClick={handleSubmit}
                 >
                   Create Account <ArrowRight className="ml-2" size={16} />
                 </button>

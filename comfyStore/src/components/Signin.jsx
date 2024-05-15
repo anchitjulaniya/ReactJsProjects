@@ -1,7 +1,34 @@
-import React from 'react'
-import { ArrowRight } from 'lucide-react'
+import React, { useEffect, useState } from 'react'
+import { ArrowRight, X } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 export function SignInFour() {
+  const [User, setUser] = useState([])
+  const [password, setPassword] = useState('')
+  const [email, setEmail] = useState('')
+ 
+  React.useEffect (() => {
+    const user = localStorage.getItem('User')
+    if (user) {
+      setUser(JSON.parse(user))
+      console.log(User);
+    }
+  }, [])
+
+  const handleLogin = (event) => {
+    // event.preventDefault()
+    console.log({ email, password })
+    if (email.trim()=="" || password.trim()==""){alert('Please enter all fields') ;return;}
+    User.filter((user) => {
+      if (user.email == email && user.password == password) {
+        alert('Login Successful')
+      } else {
+        alert('Login Failed')
+      }
+    })
+  }
+
+
   return (
     <section className="rounded-md  p-2">
       <div className="flex items-center justify-center bg-white px-4 py-10 sm:px-6 sm:py-16 lg:px-8">
@@ -23,13 +50,13 @@ export function SignInFour() {
           <h2 className="text-2xl font-bold leading-tight text-black">Sign in to your account</h2>
           <p className="mt-2text-sm text-gray-600 ">
             Don&apos;t have an account?{' '}
-            <a
+            <Link to="/signup"><span
               href="#"
               title=""
               className="font-semibold text-black transition-all duration-200 hover:underline"
             >
               Create a free account
-            </a>
+            </span></Link>
           </p>
           <form action="#" method="POST" className="mt-8">
             <div className="space-y-5">
@@ -43,6 +70,8 @@ export function SignInFour() {
                     className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                     type="email"
                     placeholder="Email"
+                    onChange={(e) => setEmail(e.target.value)}
+                    value={email}
                   ></input>
                 </div>
               </div>
@@ -62,15 +91,18 @@ export function SignInFour() {
                     className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                     type="password"
                     placeholder="Password"
+                    onChange={(e) => setPassword(e.target.value)}
+                    value={password}
                   ></input>
                 </div>
               </div>
               <div>
                 <button
                   type="button"
+                  onClick={() => handleLogin()}
                   className="inline-flex w-full items-center justify-center rounded-md bg-black px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-black/80"
                 >
-                  Get started <ArrowRight className="ml-2" size={16} />
+                  Log in <ArrowRight className="ml-2" size={16} />
                 </button>
               </div>
             </div>

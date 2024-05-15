@@ -8,7 +8,7 @@ const Exercise = () => {
     const [searchInput, setSearchInput] = useState("");
     const [searchExercise, setSearchExercise] = useState([]);
     const [filterExercise, setFilterExercise] = useState([]);
-    const [loading, setLoading] = useState(false);
+    // const [loading, setLoading] = useState(false);
 
     const workouts = [
         'BACK',
@@ -45,11 +45,11 @@ const Exercise = () => {
       };
 
       useEffect(()=>{
-        setLoading(true);
+        // setLoading(true);
         setTimeout(()=>{
           fetchData();
-        setLoading(false);
-        },2000)
+        // setLoading(false);
+        },2000000)
       },[])
 
     return (
@@ -71,8 +71,8 @@ const Exercise = () => {
 
             <div className="w-[100%] p-8 flex flex-wrap h-fit py-8 justify-center h-[500px] gap-4">
                 {
-                loading ? <Loader /> :
-                    filterExercise.map((exercise, index) => (
+                filterExercise.length == 0 ? <Loader /> :
+                    filterExercise.map((exercise) => (
                         // console.log(exercise)
                         <div onClick={() => {setSearchInput(exercise.name)}} title={exercise.id} key={exercise.id} className="w-[328px] min-w-[326px]: h-[400px] border-white border-[1px] hover:shadow-xl hover:cursor-pointer hover:border-black bg-white rounded-lg flex flex-col justify-center items-center gap-4">
                             <img src={exercise.gifUrl} width={280} alt="animated GIF url" />
