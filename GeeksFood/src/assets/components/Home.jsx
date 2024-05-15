@@ -13,9 +13,9 @@ function Home() {
           />
         </div>
 
-        <div className="absolute flex flex-col justify-center items-center w-[30%] top-60 left-60">
+        <div className="absolute flex flex-col justify-center items-center w-[60%] lg:w-[30%] top-40 left-40 lg:top-60 lg:left-60">
           <h1 className="text-5xl font-extrabold">Let us find your</h1>
-          <h1 className="text-[#E01C48] text-5xl font-extrabold mb-6">
+          <h1 className="text-[#E01C48] text-3xl lg:text-5xl font-extrabold mb-6">
             Forever Food.
           </h1>
           <p className="text-[1.1rem] text-center">

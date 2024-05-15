@@ -20,7 +20,7 @@ function Card() {
     <div className='w-[100%] m-auto flex justify-center flex-wrap gap-10 my-20'>
         {
             cards.map((card, index) => {
-                return <div key={index} className='w-[380px] h-fit'>
+                return <div key={index} className='w-[300px] md:w-[350px] lg:w-[380px] h-fit'>
                             <div className='bg-[#F3F5F7] p-6 rounded-lg shadow-lg'>
                                 {card.desc}
                             </div>
