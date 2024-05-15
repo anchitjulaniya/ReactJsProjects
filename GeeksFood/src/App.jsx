@@ -5,21 +5,16 @@ import Header from './assets/components/Header'
 import Body from './assets/components/Body'
 import Footer from './assets/components/Footer'
 import Home from './assets/components/Home'
-
-
-
-
-
-
+import { Outlet } from "react-router-dom"
 
 function App() {
   
 
   return (
     <>
-     <Header></Header>
-     <Home></Home>
-     <Footer></Footer>
+     <Header />
+     <Outlet />
+     <Footer />
     </>
   )
 }

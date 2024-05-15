@@ -1,3 +1,6 @@
+import {Link} from "react-router-dom"
+
+
 const Header = ()=>{
     return (
         <nav className="flex justify-between items-center h-[70px] w-100% bg-[rgb(17,24,39)] px-5 md:px-24">
@@ -8,11 +11,11 @@ const Header = ()=>{
             
             {/* Menu */}
             <span className="text-white font-semibold gap-8 hidden md:flex items-center">
-                    <p>Home</p>
-                    <p>Quote</p>
-                    <p>Resturants</p>
-                    <p>Foods</p>
-                    <p>Contact</p>
+                    <p><Link to="/">Home</Link></p>
+                    <p><Link to="/quote">Quote</Link></p>
+                    <p><Link to="/restaurants">Resturants</Link></p>
+                    <p><Link to="/foods">Foods</Link></p>
+                    <p><Link to="/contact">Contact</Link></p>
                     
                 </span>
 
