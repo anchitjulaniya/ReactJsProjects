@@ -17,24 +17,24 @@ function Card() {
         }
     ]
   return (
-    <div className='w-[82%] m-auto flex flex-wrap gap-8 my-20'>
+    <div className='w-[100%] m-auto flex justify-center flex-wrap gap-10 my-20'>
         {
             cards.map((card, index) => {
-                return <div key={index} className='w-96 h-fit'>
-                    <div className='bg-[#F3F5F7] p-6 rounded-lg shadow-lg'>
-                        {card.desc}
-                    </div>
-                    <div className='flex mt-4 items-start'>
-                        <div className='' >
-                            <img src="https://images.unsplash.com/photo-1603366445787-09714680cbf1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=944&q=80" alt="" style={{borderRadius:"50%"}} className='w-12 h-12 object-cover'/>
+                return <div key={index} className='w-[380px] h-fit'>
+                            <div className='bg-[#F3F5F7] p-6 rounded-lg shadow-lg'>
+                                {card.desc}
+                            </div>
+                            <div className='flex mt-4 items-start'>
+                                <div className='' >
+                                    <img src="https://images.unsplash.com/photo-1603366445787-09714680cbf1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=944&q=80" alt="" style={{borderRadius:"50%"}} className='w-12 h-12 object-cover'/>
+                                </div>
+                                <div className='ml-4'>
+                                    <h1 className='font-bold'>Gladis Lennon</h1>
+                                    <p>Head of SEO</p>
+                                </div>
+                            </div>
                         </div>
-                        <div className='ml-4'>
-                            <h1 className='font-bold'>Gladis Lennon</h1>
-                            <p>Head of SEO</p>
-                        </div>
-                    </div>
-                </div>
-            })
+                    })
         }
     </div>
   )
