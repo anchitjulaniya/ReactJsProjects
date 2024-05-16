@@ -117,9 +117,9 @@ const Foods = () => {
             />
           </div>
         )}
-        {filteredResults.length === 0 && !isLoading && (
+        {/* {filteredResults.length === 0 && !isLoading && (
           <div className="text-red-500 text-2xl">No results found.</div>
-        )}
+        )} */}
         {filteredResults.map((meal, index) => (
           <div
             key={meal + index}
