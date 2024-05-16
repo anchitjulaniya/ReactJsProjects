@@ -1,11 +1,12 @@
 import {Link} from "react-router-dom"
+import logo from "../images/logo.svg"
 
 
 const Header = ()=>{
     return (
         <nav className="flex justify-between items-center h-[70px] w-100% bg-[rgb(17,24,39)] px-5 md:px-24">
             <span className="flex items-center gap-3">
-                <img src="./src/assets/images/logo.svg" alt="Logo"/>
+                <img src={logo} alt="Logo"/>
                 <h1 className="text-white font-semibold text-2xl">GeekFoods</h1>
             </span>
             
