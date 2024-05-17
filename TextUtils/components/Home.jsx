@@ -39,10 +39,10 @@ function Home() {
 
   return (
     <div className='flex flex-col items-center py-8'>
-        <h1 className='px-4 text-3xl md:text-4xl font-semibold pb-8 text-center'>TextUtis - Word Counter, Charecter Counter, Remove Extra Space</h1>
+        <h1 className='px-4 text-3xl md:text-4xl font-semibold pb-8 text-center'>TextUtils - Word Counter, Charecter Counter, Remove Extra Space</h1>
         <div className='w-full flex h-[100vh] md:h-[50vh] gap-8 px-8 flex-col md:flex-row p-1 '>
             <div className='w-full md:w-[1/2] h-full '>
-                <h1 className='text-2xl text-blue-500 font-semibold pl-4'>Enter your Text here </h1>
+                <h1 className='text-2xl text-orange-500 font-semibold pl-4'>Enter your Text here </h1>
                 <div className=' h-[80%] relative'>
                     <textarea placeholder='Enter your text here...' value={text} onChange={(e)=>{setText(e.target.value)}} className='border-2 rounded-xl border-blue-500 outline-none p-2 w-full h-[100%]'>
                         
@@ -50,7 +50,7 @@ function Home() {
                     <span onClick={()=>{setText("")}} className={`${text.length>0?'flex':'hidden'} hover:bg-[rgb(0,0,0,0.2)] items-center justify-center rounded-full h-[30px] w-[30px] hover:text-red-500 hover:cursor-pointer   absolute top-3 right-1`}>
                         <IoClose className='hover:scale-125 duration-300 text-2xl' />
                     </span>
-                    <span onClick={()=>{navigator.clipboard.writeText(text); alert("Copied to clipboard")}} className= ' hover:cursor-pointer hover:scale-110 duration-300 rounded-full hover:bg-[rgb(0,0,0,0.2)] p-2 absolute bottom-4 right-2'>
+                    <span onClick={()=>{navigator.clipboard.writeText(text); alert("Copied to clipboard")}} className= 'hover:cursor-pointer hover:scale-110 duration-300 rounded-full hover:bg-[rgb(0,0,0,0.2)] p-2 absolute bottom-4 right-2'>
                         <FaClipboard className='text-xl' />
                     </span>
                 </div>
@@ -62,8 +62,8 @@ function Home() {
                 </div>      
             </div>
             <div className='w-full md:w-[1/2]  h-full'>
-                <h1 className='text-2xl text-blue-500 font-semibold pl-4'>Preview Document</h1>
-                <div id="displayContainer" className='h-[80%] p-2 border-2  rounded-xl border-green-500 w-full'>
+                <h1 className='text-2xl text-orange-500 font-semibold pl-4'>Preview Document</h1>
+                <div id="displayContainer" className='h-[80%] p-2 border-2  rounded-xl border-blue-500 w-full'>
                     <span className='bg-yellow-200'>{text}</span>
                 </div>
             </div>
