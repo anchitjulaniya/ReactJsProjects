@@ -19,7 +19,7 @@
 19. [comfyStore](https://comfy-shopping-by-anchit.netlify.app/)
 20. [GeeksFood](https://geeksfood-by-anchit.vercel.app/)
 21. [AI_Image_Generator](https://ai-image-generator-by-anchit.netlify.app/)
-22. [TextUtils]()
+22. [TextUtils](https://main--textutils-by-anchit.netlify.app/)
 23. [Link]()
 24. [Link]()
 25. [Link]()
