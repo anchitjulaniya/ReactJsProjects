@@ -15,7 +15,7 @@
 15. [password-generator](https://main--password-generato-by-anchit.netlify.app/)
 16. [Progress_Bar](https://progress-bar-by-anchit.netlify.app/)
 17. [Notepad_Markdown_Language]()
-18. [Fitguru]()
+18. [Fitguru](https://6643303ed72ee6c2abd63627--fitguru-by-anchit.netlify.app/?authuser=0) Api limit exceeded
 19. [comfyStore](https://comfy-shopping-by-anchit.netlify.app/)
 20. [GeeksFood](https://geeksfood-by-anchit.vercel.app/)
 21. [AI_Image_Generator](https://ai-image-generator-by-anchit.netlify.app/)
