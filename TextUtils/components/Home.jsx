@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { FaClipboard } from "react-icons/fa";
 import { useState } from 'react';
 import { IoClose } from "react-icons/io5";
@@ -7,6 +7,36 @@ import { IoClose } from "react-icons/io5";
 
 function Home() {
     const [text, setText] = useState('');
+    const [wordCount, setwordCount] = useState(0);
+    const [characterCount, setcharacterCount] = useState(0);
+    const [timeTakenbytask, settimeTakenbytask] = useState(0);
+    
+    const removeExtraSpaces = ()=>{
+        let nText = text;
+        let newText = nText.split(/[ ]+/);
+        setText(newText.join(" "));
+    }
+
+    const wordCounter = () => {
+        let nText = text;
+        setwordCount(text.split(" ").filter(word => word !== "").length);
+    }
+
+    const characterCounter = () => {
+        let nText = text;
+        let a = nText.trim();
+        let x = a.split(" ");
+        let count = 0;
+        for (let i = 0; i < x.length; i++) {
+            count += x[i].length;
+        }
+        setcharacterCount(count);
+    }
+    useEffect(() => {
+        wordCounter();
+        characterCounter();
+    },[text])
+
   return (
     <div className='flex flex-col items-center py-8'>
         <h1 className='px-4 text-3xl md:text-4xl font-semibold pb-8 text-center'>TextUtis - Word Counter, Charecter Counter, Remove Extra Space</h1>
@@ -25,16 +55,16 @@ function Home() {
                     </span>
                 </div>
                 <div className='flex gap-4 items-center px-2 py-1'>
-                    <button className='rounded-lg hover:bg-blue-600 bg-blue-500 text-white font-semibold px-4 py-1'>UpperCase</button>
-                    <button className='rounded-lg hover:bg-blue-600 bg-blue-500 text-white font-semibold px-4 py-1'>LowerCase</button>
-                    <button className='rounded-lg hover:bg-blue-600 bg-blue-500 text-white font-semibold px-4 py-1'>Remove Extra Spaces</button>
+                    <button className='rounded-lg hover:bg-blue-600 bg-blue-500 text-white font-semibold px-4 py-1' onClick={()=>{setText(text.toUpperCase())}}>UpperCase</button>
+                    <button className='rounded-lg hover:bg-blue-600 bg-blue-500 text-white font-semibold px-4 py-1' onClick={()=>{setText(text.toLowerCase())}}>LowerCase</button>
+                    <button className='rounded-lg hover:bg-blue-600 bg-blue-500 text-white font-semibold px-4 py-1 ' onClick={removeExtraSpaces}>Remove Extra Spaces</button>
                     
                 </div>      
             </div>
             <div className='w-full md:w-[1/2]  h-full'>
                 <h1 className='text-2xl text-blue-500 font-semibold pl-4'>Preview Document</h1>
                 <div id="displayContainer" className='h-[80%] p-2 border-2  rounded-xl border-green-500 w-full'>
-                    parsed Text
+                    <span className='bg-yellow-200'>{text}</span>
                 </div>
             </div>
         </div>
@@ -42,8 +72,8 @@ function Home() {
         <div className='w-full flex justify-center'>
             <div className='flex gap-2 flex-col '>
                 <h2 className='text-4xl font-semibold'>Summary of your Text</h2>
-                <p className='pl-4'>Number of words: {0}</p>
-                <p className='pl-4'>Number of Characters: {0}</p>
+                <p className='pl-4'>Number of words: {wordCount}</p>
+                <p className='pl-4'>Number of Characters: {characterCount}</p>
                 <p className='pl-4'>Reading Time: {0}s</p>
             </div>
             
