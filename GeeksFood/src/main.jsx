@@ -8,9 +8,10 @@ import { Contact } from './assets/components/Contact.jsx'
 import Restaurants from './assets/components/Restaurants.jsx'
 import Foods from './assets/components/Foods.jsx'
 import { Error } from './assets/components/Error.jsx'
-
+import FoodItem from './assets/components/FoodItem.jsx'
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+
 
 const renderFunction = createBrowserRouter([
   {
@@ -31,7 +32,12 @@ const renderFunction = createBrowserRouter([
       },
       {
         path : "/foods",
-        element : <Foods />
+        element : <Foods />,
+        
+      },
+      {
+        path : "/foodItems/:foodId",
+        element : <FoodItem />
       },
       {
         path : "/contact",

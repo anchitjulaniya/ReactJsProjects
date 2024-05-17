@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { MagnifyingGlass } from "react-loader-spinner";
+import { Navigate, useNavigate } from "react-router-dom";
+
+
 
 const Foods = () => {
+  const navigate = useNavigate();
+
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -25,7 +30,7 @@ const Foods = () => {
       setIsLoading(false);
     };
     fetchData();
-    console.log(searchResults);
+    // console.log(searchResults);
   }, []);
 
   useEffect(() => {
@@ -100,6 +105,7 @@ const Foods = () => {
       </div>
 
       <div
+    
         id="display_container"
         className="flex justify-center  flex-wrap gap-8 "
       >
@@ -122,6 +128,9 @@ const Foods = () => {
         )} */}
         {filteredResults.map((meal, index) => (
           <div
+            onClick={() => {
+              navigate(`/foodItems/${meal.idMeal}`);
+            }}
             key={meal + index}
             className="w-[300px] h-[290px] overflow-hidden rounded-2xl hover:scale-110 duration-300 hover:shadow-2xl hover:cursor-pointer"
           >
