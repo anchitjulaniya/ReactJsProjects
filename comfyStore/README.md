@@ -1,6 +1,11 @@
 # ComfyStore [Link](https://comfy-shopping-by-anchit.netlify.app/)
 
+
+
 ComfyStore is a dynamic and interactive e-commerce web application designed to streamline and enhance the online shopping experience. The application features local storage management, dynamic routing, secure authentication with private and public routes, and robust filtering and search functionalities.
+
+
+
 
 ## Table of Contents
 - [Features](#features)
@@ -10,6 +15,8 @@ ComfyStore is a dynamic and interactive e-commerce web application designed to s
 - [Project Structure](#project-structure)
 - [Contributing](#contributing)
 - [License](#license)
+
+
 
 ## Features
 1. **Local Storage**
@@ -32,6 +39,18 @@ ComfyStore is a dynamic and interactive e-commerce web application designed to s
 5. **Search Functionality**
    - Robust search feature to quickly find products.
    - Debouncing to optimize search performance and user experience.
+
+![ComfyStore Homepage](./src/assets/readmeImg1.png)
+
+![ComfyStore Homepage](./src/assets/readmeImg2.png)
+
+![ComfyStore Homepage](./src/assets/readmeImg3.png)
+
+![ComfyStore Homepage](./src/assets/readmeImg4.png)
+
+![ComfyStore Homepage](./src/assets/readmeImg5.png)
+
+![ComfyStore Homepage](./src/assets/readmeImg6.png)
 
 ## Technologies Used
 - **Frontend:** React, React Router, HTML, CSS, JavaScript
