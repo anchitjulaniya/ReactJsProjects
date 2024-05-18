@@ -9,10 +9,10 @@ ComfyStore is a dynamic and interactive e-commerce web application designed to s
 
 ## Table of Contents
 - [Features](#features)
+- [Images](#images)
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Project Structure](#project-structure)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -78,21 +78,7 @@ ComfyStore is a dynamic and interactive e-commerce web application designed to s
 1. Open your browser and navigate to http://localhost:3000.
 2. Explore the application, sign up or log in, and experience the features like filtering and searching for products.
 
-## Prject Structure
-    comfystore/
-    ```sh
-├── public/
-├── src/
-│   ├── components/
-│   ├── pages/
-│   ├── services/
-│   ├── utils/
-│   ├── App.js
-│   ├── index.js
-│   ├── routes.js
-├── .gitignore
-├── package.json
-└── README.md
+
 
 
 
