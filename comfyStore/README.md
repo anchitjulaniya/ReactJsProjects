@@ -40,6 +40,8 @@ ComfyStore is a dynamic and interactive e-commerce web application designed to s
    - Robust search feature to quickly find products.
    - Debouncing to optimize search performance and user experience.
 
+
+## Images
 ![ComfyStore Homepage](./src/assets/readmeImg1.png)
 
 ![ComfyStore Homepage](./src/assets/readmeImg2.png)
