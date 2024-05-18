@@ -45,7 +45,9 @@ ComfyStore is a dynamic and interactive e-commerce web application designed to s
    git clone https://github.com/yourusername/comfystore.git
    cd comfystore
 2. Install dependencies:
+    ```sh
     npm install
 
 3. Start the development server:
+    ```sh
     npm start
