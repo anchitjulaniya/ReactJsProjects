@@ -10,7 +10,7 @@ import extra4 from '../assets/extra4.jpeg'
 
 function Home() {
   return (
-    <div className='flex flex-col items-center gap-5 py-12'>
+    <div className='flex flex-col items-center gap-5 py-12 mb-36'>
       <div className='flex flex-col items-center gap-5'>
         <img src={hero} alt="" className='w-[290px] lg:w-[392px] h-[212px]'  />
         <h1 className='text-2xl text-white font-bold my-6'>Remove Image <span className='text-blue-500 '>Editor</span></h1>
