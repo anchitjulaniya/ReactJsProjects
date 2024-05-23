@@ -1,10 +1,15 @@
 import './folder.css'
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import axios from 'axios';
+import FormData from 'form-data';
+import { Circles } from 'react-loader-spinner'
+
 
 
 const ApiKey = "mCweAp7oW7YY6Vu814drMSHK";
 function Convert() {
+  
+  const [result, setResult] = useState(null);
 
   const fileInputRef = useRef(null);
 
@@ -14,58 +19,58 @@ function Convert() {
   }
   const handleFileChange = (e)=>{
     console.log(e.target.files[0]);
+    if(e.target.files[0]) {
+      console.log("function");
+      console.log(e.target.files[0]);
+      //  setResult(e.target.files[0]) ;
+       fetchingFunction(e.target.files[0]); 
+       }
   }
 
   // --------------------
 
   // Requires "axios" and "form-data" to be installed (see https://www.npmjs.com/package/axios and https://www.npmjs.com/package/form-data)
-//       const axios = require('axios');
-//       const FormData = require('form-data');
-//       const fs = require('fs');
-//       const path = require('path');
+const fetchingFunction = (file) =>{
+  console.log("Inside function");
 
-//       // Path to the input image
-//       const inputPath = '/path/to/file.jpg';
+// const inputPath = '/path/to/file.jpg';
+const formData = new FormData();
+formData.append('size', 'auto');
+formData.append('image_file', file);
 
-//       // Create a new FormData instance
-//       const formData = new FormData();
-//       formData.append('size', 'auto');
-//       formData.append('image_file', fs.createReadStream(inputPath), path.basename(inputPath));
+axios({
+  method: 'post',
+  url: 'https://api.remove.bg/v1.0/removebg',
+  data: formData,
+  responseType: 'arraybuffer',
+  headers: {
+    'X-Api-Key': ApiKey,
+  },
+  // encoding: null
+})
+.then((response) => {
+  if(response.status != 200) return console.error('Error:', response.status, response.statusText);
 
-//       // Send a POST request to the Remove.bg API
-//       axios({
-//         method: 'post',
-//         url: 'https://api.remove.bg/v1.0/removebg',
-//         data: formData,
-//         responseType: 'arraybuffer',
-//         headers: {
-//           ...formData.getHeaders(),
-//           'X-Api-Key': ApiKey,
-//         },
-//         encoding: null
-//       })
-//       .then((response) => {
-//         // Check if the request was successful
-//         if (response.status != 200) {
-//           console.error('Error:', response.status, response.statusText);
-//           return;
-//         }
+    console.log("response", response.data);
 
-//         // Write the output image to a file
-//         fs.writeFileSync("no-bg.png", response.data);
-//       })
-//       .catch((error) => {
-//         console.error('Request failed:', error);
-//       });
+    const blob = new Blob([response.data], { type: 'image/jpeg' }); // Adjust MIME type if necessary
+    console.log("blob", blob)
+      
+    const url = URL.createObjectURL(blob);
+    console.log(url);
 
+    setResult(url);
+  // 
+})
+.catch((error) => {
+    return console.error('Request failed:', error);
+});
 
-//   // -------------
-
-
-
+}
 
   return (
-    <div className='text-white flex flex-col items-center h-[60vh] justify-center gap-8'>
+    <div className='text-white flex flex-col min-h-[300px] items-center justify-center gap-8'>
+      <div className='h-[20px]'></div>
         <h1 className='font-semibold text-4xl'>Image Converter</h1>
         <p className='text-[rgb(108,117,125)]'>Convert your images files to any format</p>
         <button onClick={handleOnClick} className="button mt-10">
@@ -83,7 +88,9 @@ function Convert() {
           ref={fileInputRef}
           onChange={handleFileChange}
         />
-
+        <div id="displayContainer" className=''>
+          <img src={result} width={400} className='rounded-lg' />
+        </div>
     </div>
 
   )
