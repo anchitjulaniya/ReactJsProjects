@@ -1,7 +1,7 @@
 import { Heart, Trash } from 'lucide-react'
 import React from 'react'
 import { useReducer } from 'react'
-
+import { Provider } from '@reduxjs/toolkit'
 
 
 const products = [
