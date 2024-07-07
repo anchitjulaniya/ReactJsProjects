@@ -1,0 +1,42 @@
+@keyframes translate-up {
+    0% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    25%{
+      
+    }
+    50%{
+
+    }
+    75%{
+
+    }
+   
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  #about span {
+    display: block;
+    animation: translate-up 2s ease-in-out forwards;
+  }
+  
+  #about span:nth-child(1) {
+    animation-delay: 0s;
+  }
+  
+  #about span:nth-child(2) {
+    animation-delay: 4s; /* Adjust the delay to wait until the previous animation is done */
+  }
+  
+  #about span:nth-child(3) {
+    animation-delay: 8s; /* Adjust the delay to wait until the previous animation is done */
+  }
+  
+  #about span:nth-child(4) {
+    animation-delay: 12s; /* Adjust the delay to wait until the previous animation is done */
+  }
+  
