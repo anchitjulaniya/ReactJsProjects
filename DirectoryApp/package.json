@@ -19,7 +19,8 @@
     "react-modal": "^3.16.1",
     "react-toastify": "^10.0.5",
     "rimraf": "^6.0.0",
-    "tostify": "^0.0.1"
+    "tostify": "^0.0.1",
+    "uuid": "^10.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",

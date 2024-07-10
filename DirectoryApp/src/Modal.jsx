@@ -1,7 +1,9 @@
 import React from 'react'
 
-function Modal({name, setName, dob, setDob, aadhaar, setAadhaar, mobile, setMobile, age, setAge, Add, closeModal}) {
-  return (
+function Modal({name, setName, dob, setDob, aadhaar, setAadhaar, mobile, setMobile, age, setAge, Add, closeModal, editing}) {
+  
+  
+    return (
     <div className='absolute z-10 h-[100vh] w-[100%] flex justify-center items-center bg-[rgba(0,0,0,0.4)]'>
         <div className=' bg-white rounded-xl py-8 px-8'>
         <h2 className="text-center font-bold text-blue-500">
@@ -14,6 +16,7 @@ function Modal({name, setName, dob, setDob, aadhaar, setAadhaar, mobile, setMobi
                 type="text"
                 name="name"
                 id="name"
+                value={name}
                 onChange={(e) => setName(e.target.value)}
                 className="w-full border border-black rounded-lg px-2 py-1"
               />
@@ -25,6 +28,7 @@ function Modal({name, setName, dob, setDob, aadhaar, setAadhaar, mobile, setMobi
                 type="date"
                 name="dob"
                 id="dob"
+                value={dob}
                 onChange={(e) => setDob(e.target.value)}
                 className="w-full border border-black rounded-lg px-2 py-1"
               />
@@ -37,6 +41,7 @@ function Modal({name, setName, dob, setDob, aadhaar, setAadhaar, mobile, setMobi
                 name="aadhaar"
                 id="aadhaar"
                 minLength={12}
+                value={aadhaar}
                 onChange={(e) => setAadhaar(e.target.value)}
                 className="w-full border border-black rounded-lg px-2 py-1"
               />
@@ -48,6 +53,7 @@ function Modal({name, setName, dob, setDob, aadhaar, setAadhaar, mobile, setMobi
                 type="tel"
                 name="mobile"
                 id="mobile"
+                value={mobile}
                 minLength={10}
                 onChange={(e) => setMobile(e.target.value)}
                 className="w-full border border-black rounded-lg px-2 py-1"
@@ -62,6 +68,7 @@ function Modal({name, setName, dob, setDob, aadhaar, setAadhaar, mobile, setMobi
                 id="age"
                 min={0}
                 max={150}
+                value={age}
                 onChange={(e) => setAge(e.target.value)}
                 className="w-full border border-black rounded-lg px-2 py-1"
               />
@@ -76,11 +83,12 @@ function Modal({name, setName, dob, setDob, aadhaar, setAadhaar, mobile, setMobi
             Close
           </button>
           <button
-            className=" bg-green-500 rounded-lg py-1 text-white font-bold px-5"
-            onClick={Add}
-          >
-            Add
-          </button>
+          className=" bg-green-500 rounded-lg py-1 text-white font-bold px-5"
+          onClick={Add}
+        >
+          Save
+        </button>
+        
           </span>
         </div>
     </div>

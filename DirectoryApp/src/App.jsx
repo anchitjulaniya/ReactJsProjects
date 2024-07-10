@@ -6,11 +6,15 @@ import AddNewPerson from "./components/AddNewPerson";
 import Modal from "./Modal";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { v1 as uuidv1 } from 'uuid';
 
 function App() {
 
   const [page, SetPage] = useState("Add New Person");
   const [modalIsOpen, setIsOpen] = useState(false);
+
+  const [editing, setEditing] = useState(false);
+  const [editId, setEditId] = useState("");
 
   const [name, setName] = useState("");
   const [dob, setDob] = useState("");
@@ -20,7 +24,7 @@ function App() {
 
   const [directory, setDirectory] = useState(() => {
     const x = localStorage.getItem("directory");
-    // console.log(x)
+    console.log(x)
     return x ? JSON.parse(x) : [];
   });
 
@@ -51,23 +55,70 @@ function App() {
   }
 
   const Add = () => {
-    setDirectory((prevDirectory) => [...prevDirectory, {
-      name: name,
-      dob: dob,
-      aadhaar: aadhaar,
-      mobile: mobile,
-      age: age,
-    }]);
-    
-    console.log(directory);
-    if(name.trim() === "" || dob.trim() === "" || aadhaar.trim() === "" || mobile.trim() === "" || age.trim() === ""){
+    if (name.trim() === "" || dob.trim() === "" || aadhaar.trim() === "" || mobile.trim() === "" || age === 0) {
       alert("Please fill all the fields");
-      return
+      return;
     }
-    notify();
-    
 
+    if (editing) {
+      setDirectory((prevDirectory) =>
+        prevDirectory.map((person) =>
+          person.id === editId ? { id: editId, name, dob, aadhaar, mobile, age } : person
+        )
+      );
+    } else {
+      setDirectory((prevDirectory) => [
+        ...prevDirectory,
+        { id: uuidv1(), name, dob, aadhaar, mobile, age },
+      ]);
+    }
+
+    notify();
     closeModal();
+    setEditing(false);
+    setName("");
+    setDob("");
+    setAadhaar("");
+    setMobile("");
+    setAge(0);
+  };
+
+  function edit(editId) {
+    setEditing(true);
+    openModal();
+    setEditId(editId);
+
+    const person = directory.find((person) => person.id === editId);
+    if (person) {
+      setName(person.name);
+      setDob(person.dob);
+      setAadhaar(person.aadhaar);
+      setMobile(person.mobile);
+      setAge(person.age);
+    }
+  }
+
+
+  const Edit = (id)=>{
+    setEditId(id);
+    setEditing(true);
+    openModal();
+
+    const person = directory.find((person) => person.id == editId);
+    console.log(person);
+    
+    setName(person.name);
+    setDob(person.dob);
+    setAadhaar(person.aadhaar);
+    setMobile(person.mobile);
+    setAge(person.age);
+  }
+
+  const Delete = (id)=>{
+    setDirectory((prevDirectory) => prevDirectory.filter((person) => person.id != editId));
+
+    setEditId("");
+    setEditing(false);
   }
 
   return (
@@ -88,6 +139,7 @@ function App() {
             setAge={setAge}
             Add={Add}
             closeModal={closeModal}
+            editing={editing}
           />
         }
       <Header />
@@ -111,14 +163,14 @@ function App() {
 
       <div className="w-[92%] mx-auto border-black border-[1px] h-fit min-h-[70vh] relative">
         <div className="h-[80px]">
-          <div className="px-10 w-fit py-4 text-black bg-white border border-black">
+          <div className="px-10 w-fit py-4 text-sm lg:text-md text-black bg-white border border-black">
             {page}
           </div>
         </div>
 
-        <div className="xl:mx-auto flex justify-start xl:justify-center overflow-auto">
-          {page === "Add New Person" && <AddNewPerson directory={directory} />}
-          {page === "Retrieve Information" && <RetrieveInfo directory={directory} />}
+        <div className={`xl:mx-auto pt-4 flex justify-start lg:justify-center ${page === "RetrieveInfo " ? "flex-wrap" : "overflow-auto"}`}>
+          {page === "Add New Person" && <AddNewPerson directory={directory} Edit={Edit} Delete={Delete} />}
+          {page === "Retrieve Information" && <RetrieveInfo  directory={directory}  />}
         </div>
 
         
@@ -130,6 +182,7 @@ function App() {
           >
             Add
           </button>
+          
         </span>
       </div>
     </>
